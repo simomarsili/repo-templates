@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 from os import path
-from setuptools import setup, find_packages
+from setuptools import setup
 
-NAME = 'my_module'
+NAME = 'project_name'
+MODULES = ['module_template', ]
 VERSION_FILE = 'version.json'
 SETUP_REQUIRES = []
 INSTALL_REQUIRES = []
@@ -35,13 +36,12 @@ LONG_DESCRIPTION = get_long_description(HERE)
 setup(
     name=NAME,
     version=VERSION,
-    description='My module',
+    description='A template project with modules',
     long_description=LONG_DESCRIPTION,
     author='Simone Marsili',
     author_email='simo.marsili@gmail.com',
-    url='https://github.com/simomarsili/gopen',
-    packages=find_packages(exclude=['contrib', 'docs', 'tests']),
-    # packages=['skmsa'],
+    url='https://github.com/simomarsili/'+NAME,
+    py_modules=MODULES,
     package_data={'':
                   ['LICENSE.txt',
                    'README.rst',
