@@ -3,7 +3,7 @@ from os import path
 from setuptools import setup
 
 NAME = 'project_name'
-MODULES = ['module_template', ]
+MODULES = ['module_name', ]
 VERSION_FILE = 'version.json'
 SETUP_REQUIRES = []
 INSTALL_REQUIRES = []
