@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 from os import path
 from setuptools import setup
-# from setuptools import find_packages
+from setuptools import find_packages
 
 NAME = 'project_name'
-PACKAGES = ['package_name', ]
+PACKAGES = ['package_name', 'package_name/nested_package_name']
 VERSION_FILE = 'version.json'
 SETUP_REQUIRES = []
 INSTALL_REQUIRES = []
@@ -42,8 +42,8 @@ setup(
     author='Simone Marsili',
     author_email='simo.marsili@gmail.com',
     url='https://github.com/simomarsili/'+NAME,
-    packages=PACKAGES,
-    # packages=find_packages(exclude=['tests']),
+    # packages=PACKAGES,
+    packages=find_packages(exclude=['tests']),
     package_data={'':
                   ['LICENSE.txt',
                    'README.rst',
