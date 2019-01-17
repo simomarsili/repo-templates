@@ -8,7 +8,10 @@ PACKAGES = ['package1', 'package1/package2']
 MODULES = ['module1', ]
 VERSION_FILE = 'version.json'
 SETUP_REQUIRES = []
-INSTALL_REQUIRES = []
+INSTALL_REQUIRES = [
+    # # this is an example of URL based requirement (see PEP508):
+    # 'repo @ http://github.com/user/repo/tarball/master.tar.gz',
+]
 EXTRAS_REQUIRES = {'test': ['pytest']}
 
 
