@@ -12,7 +12,7 @@ VERSION_FILE = 'version.json'
 SETUP_REQUIRES = []
 INSTALL_REQUIRES = [
     # # this is an example of URL based requirement (see PEP508):
-    # 'repo @ http://github.com/user/repo/tarball/master.tar.gz',
+    # 'repo @ http://github.com/user/repo/asrchive/master.tar.gz',
 ]
 EXTRAS_REQUIRES = {'test': ['pytest']}
 
