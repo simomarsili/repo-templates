@@ -5,7 +5,9 @@ from setuptools import setup
 
 NAME = 'project_name'
 PACKAGES = ['package1', 'package1/package2']
-MODULES = ['module1', ]
+MODULES = [
+    'module1',
+]
 VERSION_FILE = 'version.json'
 SETUP_REQUIRES = []
 INSTALL_REQUIRES = [
@@ -45,14 +47,11 @@ setup(
     long_description=LONG_DESCRIPTION,
     author='Simone Marsili',
     author_email='simo.marsili@gmail.com',
-    url='https://github.com/simomarsili/'+NAME,
+    url='https://github.com/simomarsili/' + NAME,
     py_modules=MODULES,
     packages=PACKAGES,
     # packages=find_packages(exclude=['tests']),
-    package_data={'':
-                  ['LICENSE.txt',
-                   'README.rst',
-                   'requirements.txt']},
+    package_data={'': ['LICENSE.txt', 'README.rst', 'requirements.txt']},
     include_package_data=True,
     setup_requires=SETUP_REQUIRES,
     install_requires=INSTALL_REQUIRES,
