@@ -4,9 +4,9 @@ from setuptools import setup
 # from setuptools import find_packages
 
 NAME = 'project_name'
-PACKAGES = ['package1', 'package1/package2']
+PACKAGES = ['package', 'package/sub_package']
 MODULES = [
-    'module1',
+    'module',
 ]
 VERSION_FILE = 'version.json'
 SETUP_REQUIRES = []
