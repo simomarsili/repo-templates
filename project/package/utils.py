@@ -72,25 +72,3 @@ def config_loggers():
         # level=logging.DEBUG)
         level=logging.INFO)
     # add_notes_handler()
-
-
-def add_loglevel_notes():
-    '''Add a loglevel "notes".'''
-    logging.NOTES = 25
-    logging.addLevelName(logging.NOTES, "NOTES")
-
-    def notes(self, message, *args, **kws):
-        if self.isEnabledFor(logging.NOTES):
-            self._log(logging.NOTES, message, args, **kws)
-
-    logging.Logger.notes = notes
-
-
-def add_notes_handler():
-    '''Add a separate handler for notes.'''
-    handler = logging.FileHandler('notes.log')
-    handler.setLevel(logging.NOTES)
-    # set a very clean format
-    formatter = logging.Formatter('%(message)s')
-    handler.setFormatter(formatter)
-    logging.getLogger('').addHandler(handler)
