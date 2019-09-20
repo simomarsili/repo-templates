@@ -3,7 +3,8 @@ from os import path
 from setuptools import setup
 # from setuptools import find_packages
 
-NAME = 'project_name'
+# the project and the top-level package have the same name
+NAME = 'package'
 PACKAGES = ['package', 'package/sub_package']
 MODULES = [
     'module',
