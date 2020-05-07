@@ -4,12 +4,12 @@ from setuptools import setup
 # from setuptools import find_packages
 
 # the project and the top-level package have the same name
-NAME = 'package'
+NAME = 'my_project'
 PACKAGES = ['package', 'package/sub_package']
 MODULES = [
     'module',
 ]
-VERSION_FILE = 'version.json'
+PACKAGE_FILE = 'package.json'
 SETUP_REQUIRES = []
 INSTALL_REQUIRES = [
     # # this is an example of URL based requirement (see PEP508):
@@ -38,7 +38,7 @@ def get_long_description(here):
 
 
 HERE = path.abspath(path.dirname(__file__))
-VERSION = get_version(path.join(HERE, VERSION_FILE))
+VERSION = get_version(path.join(HERE, PACKAGE_FILE))
 LONG_DESCRIPTION = get_long_description(HERE)
 
 setup(
