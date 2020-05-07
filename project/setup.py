@@ -5,7 +5,8 @@ from setuptools import setup
 
 # the project and the top-level package have the same name
 NAME = 'my_project'
-PACKAGES = ['package', 'package/sub_package']
+PACKAGES = ['package', 'package_2']
+# PACKAGES = find_packages(exclude=['tests'])
 MODULES = [
     'module',
 ]
