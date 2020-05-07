@@ -1,27 +1,27 @@
 # -*- coding: utf-8 -*-
+"""Setup template."""
+import codecs
+import json
 from os import path
 from setuptools import setup
 # from setuptools import find_packages
 
 # the project and the top-level package have the same name
-NAME = 'my_project'
+PROJECT_NAME = 'my_project'
 PACKAGES = ['package', 'package_2']
 # PACKAGES = find_packages(exclude=['tests'])
-MODULES = [
-    'module',
-]
+MODULES = ['module']
 PACKAGE_FILE = 'package.json'
 SETUP_REQUIRES = []
 INSTALL_REQUIRES = [
     # # this is an example of URL based requirement (see PEP508):
-    # 'repo @ http://github.com/user/repo/asrchive/master.tar.gz',
+    # 'repo @ http://github.com/user/repo/archive/master.tar.gz',
 ]
 EXTRAS_REQUIRES = {'test': ['pytest']}
 
 
 def get_version(source):
     """ Retrieve version number."""
-    import json
     with open(source, 'r') as fp:
         version_data = json.load(fp)
     try:
@@ -33,7 +33,6 @@ def get_version(source):
 
 def get_long_description(here):
     """Get the long description from the README file."""
-    import codecs
     with codecs.open(path.join(here, 'README.rst'), encoding='utf-8') as _rf:
         return _rf.read()
 
@@ -43,18 +42,15 @@ VERSION = get_version(path.join(HERE, PACKAGE_FILE))
 LONG_DESCRIPTION = get_long_description(HERE)
 
 setup(
-    name=NAME,
+    name=PROJECT_NAME,
     version=VERSION,
     description='A template project with packages',
     long_description=LONG_DESCRIPTION,
     author='Simone Marsili',
     author_email='simo.marsili@gmail.com',
-    url='https://github.com/simomarsili/' + NAME,
+    url='https://github.com/simomarsili/' + PROJECT_NAME,
     py_modules=MODULES,
     packages=PACKAGES,
-    # packages=find_packages(exclude=['tests']),
-    # package_data={'': ['LICENSE.txt', 'README.rst', 'requirements.txt']},
-    # include_package_data=True,
     setup_requires=SETUP_REQUIRES,
     install_requires=INSTALL_REQUIRES,
     extras_require=EXTRAS_REQUIRES,
