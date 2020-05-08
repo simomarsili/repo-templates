@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Top-level package."""
 
 __title__ = 'my_project'
