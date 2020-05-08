@@ -1,2 +1,5 @@
 # packageA
 # packageB
+pre-commit
+pylint
+isort

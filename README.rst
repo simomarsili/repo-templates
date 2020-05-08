@@ -5,15 +5,16 @@ Repository templates.
 
 repo set-up
 
-needed packages: ``git``, ``pre-commit``
+needed packages: ``git``
 
-optionally create a virtual environment
+create a virtual environment
 
 run:::
 
+  $ git init
+  $ pip install -r requirements.txt
   $ pre-commit install
   $ pre-commit autoupdate
-  $ pip install pylint isort
 
 update the template structure and the ``__init__.py`` in the top-level package
 
