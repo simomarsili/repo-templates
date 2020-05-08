@@ -5,31 +5,14 @@ Repository templates.
 
 repo set-up
 
-needed packages: ``git``
+copy the ``project`` template directory to target repo dir
 
 create a virtual environment
 
-run:::
+run utils/init.bash
 
-  $ git init
-  $ pip install -r requirements.txt
-  $ pre-commit install
-  $ pre-commit autoupdate
+mv the ``my_package`` dir to the desired top-level package name
 
-update the template structure and the ``__init__.py`` in the top-level package
+fix the ``__init__.py`` into the top-level package
 
-list of project repo files:
-
-CHANGELOG.md
-LICENSE.txt
-MANIFEST.in
-.pre-commit-config.yaml
-.pylintrc
-README.rst
-requirements.txt
-setup.cfg
-setup.py
-tox.ini
-.travis.yml
-tests/test_template.py
-.gitignore
+add and commit
