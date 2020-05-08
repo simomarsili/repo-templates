@@ -8,8 +8,8 @@ The top-level package __init__.py stores all the project info.
 
 import codecs
 from os import path
-from setuptools import setup
-from setuptools import find_packages
+
+from setuptools import find_packages, setup
 
 
 def get_long_description(readme):
@@ -19,9 +19,10 @@ def get_long_description(readme):
 
 
 def get_package_name():
-    "The top-level package name."
-    top_level_packages = [p for p in find_packages(exclude=['tests'])
-                          if '.' not in p]
+    'The top-level package name.'
+    top_level_packages = [
+        p for p in find_packages(exclude=['tests']) if '.' not in p
+    ]
     if len(top_level_packages) != 1:
         raise ValueError('Project must contain a single top-level package.')
     return top_level_packages[0]
@@ -36,7 +37,7 @@ package_name = get_package_name()
 # get project info from the __init__.py module of the top-level package
 project_info = {}
 with open(path.join(package_name, '__init__.py')) as fp:
-    exec(fp.read(), project_info)
+    exec(fp.read(), project_info)  # pylint: disable=exec-used
 
 project_name = project_info['__title__']
 version = project_info['__version__']
@@ -53,14 +54,7 @@ INSTALL_REQUIRES = [
 ]
 EXTRAS_REQUIRES = {'test': ['pytest']}
 
-print(
-    base_dir,
-    readme_file,
-    project_name,
-    version,
-    package_name,
-    packages
-)
+print(base_dir, readme_file, project_name, version, package_name, packages)
 
 setup(
     name=project_name,
