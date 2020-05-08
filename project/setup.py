@@ -2,8 +2,8 @@
 """
 Setup for repo template.
 
-The project contains a **single top-level package**. This top-level package
-contains a __project__.py module with all the project info.
+The project contains a **single top-level package**.
+The top-level package __init__.py stores all the project info.
 """
 
 import codecs
@@ -27,9 +27,8 @@ def get_package_name():
     return top_level_packages[0]
 
 
-HERE = path.abspath(path.dirname(__file__))
-PROJECT_FILE = path.join(HERE, 'project.json')
-README_FILE = path.join(HERE, 'README.rst')
+base_dir = path.abspath(path.dirname(__file__))
+readme_file = path.join(base_dir, 'README.rst')
 
 # single top-level package
 package_name = get_package_name()
@@ -42,7 +41,7 @@ with open(path.join(package_name, '__init__.py')) as fp:
 project_name = project_info['__title__']
 version = project_info['__version__']
 
-long_description = get_long_description(README_FILE)
+long_description = get_long_description(readme_file)
 
 packages = find_packages(exclude=['tests'])
 modules = []
@@ -55,9 +54,8 @@ INSTALL_REQUIRES = [
 EXTRAS_REQUIRES = {'test': ['pytest']}
 
 print(
-    HERE,
-    PROJECT_FILE,
-    README_FILE,
+    base_dir,
+    readme_file,
     project_name,
     version,
     package_name,
