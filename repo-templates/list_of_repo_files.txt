@@ -1,0 +1,14 @@
+README.rst
+CHANGELOG.md
+LICENSE.txt
+MANIFEST.in
+setup.py
+requirements.txt
+setup.cfg
+.gitignore
+.pre-commit-config.yaml
+.pylintrc
+tests/test_template.py
+tox.ini
+.travis.yml
+

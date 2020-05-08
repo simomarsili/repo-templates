@@ -15,7 +15,9 @@ run:::
   $ pre-commit autoupdate
   $ pip install pylint isort
 
-list of repo files:
+update the template structure and the ``__init__.py`` in the top-level package
+
+list of project repo files:
 
 CHANGELOG.md
 LICENSE.txt
@@ -28,5 +30,5 @@ setup.cfg
 setup.py
 tox.ini
 .travis.yml
-
-
+tests/test_template.py
+.gitignore
