@@ -13,13 +13,13 @@ from setuptools import find_packages
 
 
 def get_info(source):
-    """ Retrieve package info."""
+    """ Retrieve project info."""
     with open(source, 'r') as fp:
         info = json.load(fp)
     if 'version' not in info:
-        raise KeyError("check package.json file: no version number")
+        raise KeyError("check project.json file: no version number")
     if 'name' not in info:
-        raise KeyError("check package.json file: no project name")
+        raise KeyError("check project.json file: no project name")
     return info
 
 
@@ -30,12 +30,12 @@ def get_long_description(readme):
 
 
 HERE = path.abspath(path.dirname(__file__))
-# package.json and README are in the project root
-PACKAGE_FILE = path.join(HERE, 'package.json')
+# project.json and README are in the project root
+PROJECT_FILE = path.join(HERE, 'project.json')
 README_FILE = path.join(HERE, 'README.rst')
 
 
-package_info = get_info(PACKAGE_FILE)
+project_info = get_info(PROJECT_FILE)
 long_description = get_long_description(README_FILE)
 
 PACKAGES = find_packages(exclude=['tests'])
@@ -51,13 +51,13 @@ EXTRAS_REQUIRES = {'test': ['pytest']}
 
 
 setup(
-    name=package_info['name'],
-    version=package_info['version'],
+    name=project_info['name'],
+    version=project_info['version'],
     description='A template project with packages',
     long_description=long_description,
     author='Simone Marsili',
     author_email='simo.marsili@gmail.com',
-    url='https://github.com/simomarsili/' + package_info['name'],
+    url='https://github.com/simomarsili/' + project_info['name'],
     # py_modules=MODULES,
     packages=PACKAGES,
     setup_requires=SETUP_REQUIRES,
