@@ -1,26 +1,15 @@
 # -*- coding: utf-8 -*-
 """
 Setup for repo template.
-The project should contain a **single top-level package**.
-Any additional packages and modules are contained in the top level package.
+
+The project contains a **single top-level package**. This top-level package
+contains a __project__.py module with all the project info.
 """
 
 import codecs
-import json
 from os import path
 from setuptools import setup
 from setuptools import find_packages
-
-
-def get_info(source):
-    """ Retrieve project info."""
-    with open(source, 'r') as fp:
-        info = json.load(fp)
-    if 'version' not in info:
-        raise KeyError("check project.json file: no version number")
-    if 'name' not in info:
-        raise KeyError("check project.json file: no project name")
-    return info
 
 
 def get_long_description(readme):
@@ -30,6 +19,7 @@ def get_long_description(readme):
 
 
 def get_package_name():
+    "The top-level package name."
     top_level_packages = [p for p in find_packages(exclude=['tests'])
                           if '.' not in p]
     if len(top_level_packages) != 1:
@@ -41,11 +31,17 @@ HERE = path.abspath(path.dirname(__file__))
 PROJECT_FILE = path.join(HERE, 'project.json')
 README_FILE = path.join(HERE, 'README.rst')
 
-project_info = get_info(PROJECT_FILE)
-
-project_name = project_info['name']
-version = project_info['version']
+# single top-level package
 package_name = get_package_name()
+
+# get project info from the __init__.py module of the top-level package
+project_info = {}
+with open(path.join(package_name, '__init__.py')) as fp:
+    exec(fp.read(), project_info)
+
+project_name = project_info['__title__']
+version = project_info['__version__']
+
 long_description = get_long_description(README_FILE)
 
 packages = find_packages(exclude=['tests'])
@@ -62,7 +58,6 @@ print(
     HERE,
     PROJECT_FILE,
     README_FILE,
-    project_info,
     project_name,
     version,
     package_name,
@@ -72,27 +67,17 @@ print(
 setup(
     name=project_name,
     version=version,
-    description='A template project with packages',
+    description=project_info['__summary__'],
     long_description=long_description,
-    author='Simone Marsili',
-    author_email='simo.marsili@gmail.com',
-    url='https://github.com/simomarsili/' + project_name,
+    author=project_info['__author__'],
+    author_email=project_info['__email__'],
+    url=project_info['__url__'],
     py_modules=modules,
     packages=packages,
     setup_requires=SETUP_REQUIRES,
     install_requires=INSTALL_REQUIRES,
     extras_require=EXTRAS_REQUIRES,
-    package_data={'my_project': ['project.json']},
-    include_package_data=True,
-    license='BSD 3-Clause',
+    license=project_info['__license__'],
     # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
-    classifiers=[
-        'Development Status :: 3 - Alpha',
-        'License :: OSI Approved :: BSD License',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
-    ],
+    classifiers=project_info['__classifiers__'],
 )
